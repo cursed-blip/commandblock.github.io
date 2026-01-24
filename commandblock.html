@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CommandBlock - Minecraft Commands</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html {
+    scroll-behavior: smooth;
+    background-color: #1a1a1a;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+    header {
+        text-align: center;
+        padding: 30px;
+        font-size: 2.5em;
+        font-weight: 700;
+        font-family: 'Bitcount Single', sans-serif;
+        background-color: #000;
+        color: #fff;
+        border-bottom: 2px solid #ccc;
+        will-change: transform;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #2a2a2a;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        border: 2px solid #555;
+        background-color: #333;
+        color: #fff;
+        font-size: 18px;
+        transition: border-color 0.3s;
+    }
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #fff;
+    }
+    #commandsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .command {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #555;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 150px;
+    }
+    .command:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .command-info {
+        margin-bottom: 10px;
+    }
+    .command-name {
+        font-weight: 700;
+        font-size: 1.2em;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    .command-desc {
+        font-size: 1em;
+        color: #ccc;
+    }
+    button.copy-btn {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        transition: background-color 0.3s, transform 0.2s;
+        align-self: flex-end;
+    }
+    button.copy-btn:hover {
+        background-color: #ccc;
+        transform: scale(1.05);
+    }
+    .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1000;
+    }
+    .toast.show {
+        opacity: 1;
+    }
+    .filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .filters button {
+        background-color: transparent;
+        color: #ccc;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: color 0.3s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        position: relative;
+    }
+    .filters button::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #000, #fff);
+        transition: width 0.3s, left 0.3s;
+    }
+    .filters button:hover::after, .filters button.active::after {
+        width: 100%;
+        left: 0;
+    }
+    .filters button:hover, .filters button.active {
+        color: #fff;
+    }
+    .edition-filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .edition-filters button {
+        background-color: transparent;
+        color: #ccc;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: color 0.3s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        position: relative;
+    }
+    .edition-filters button::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #000, #fff);
+        transition: width 0.3s, left 0.3s;
+    }
+    .edition-filters button:hover::after, .edition-filters button.active::after {
+        width: 100%;
+        left: 0;
+    }
+    .edition-filters button:hover, .edition-filters button.active {
+        color: #fff;
+    }
+    .nav {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+    }
+    .tab {
+        display: inline-block;
+        padding: 8px 12px;
+        margin-right: 10px;
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        position: relative;
+        cursor: pointer;
+    }
+    .tab::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #000, #fff);
+        transition: width 0.3s, left 0.3s;
+    }
+    .tab:hover::after {
+        width: 100%;
+        left: 0;
+    }
+    .tab:hover {
+        color: #fff;
+    }
+    .custom-select {
+        position: relative;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .select-selected {
+        background-color: transparent;
+        color: #ccc;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: color 0.3s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        position: relative;
+        border: none;
+    }
+    .select-selected::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #000, #fff);
+        transition: width 0.3s, left 0.3s;
+    }
+    .select-selected:hover::after {
+        width: 100%;
+        left: 0;
+    }
+    .select-selected:hover {
+        color: #fff;
+    }
+    .select-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        border-radius: 5px;
+        z-index: 1;
+        min-width: 100%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    .select-options.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .select-options div {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .select-options div:hover {
+        background-color: #555;
+    }
+    .docs-section {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+    .docs-section.show {
+        display: block;
+    }
+    .docs-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .docs-content {
+        position: relative;
+        z-index: 1001;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .docs-content .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: #000;
+        font-size: 30px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+    .docs-content .close-btn:hover {
+        color: #ff0;
+    }
+    .docs-content h2, .docs-content h3 {
+        color: #000;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .docs-content h3 {
+        font-size: 1.5em;
+    }
+    .docs-content p {
+        line-height: 1.8;
+        margin-bottom: 30px;
+        font-size: 1.1em;
+        color: #333;
+    }
+    .docs-content a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .docs-content a:hover {
+        text-decoration: underline;
+    }
+    .docs-content code {
+        background-color: #f8f9fa;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 1em;
+        color: #000;
+    }
+    @media (max-width: 1024px) {
+        #commandsContainer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .container {
+            margin: 20px;
+            padding: 20px;
+        }
+        header {
+            font-size: 2em;
+            padding: 20px;
+        }
+        #commandsContainer {
+            grid-template-columns: 1fr;
+        }
+        .command {
+            height: auto;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="#" onclick="toggleDocs()" class="tab">Documentation</a>
+    <a href="https://github.com/" class="tab">Database</a>
+</div>
+<header>CommandBlock</header>
+<div class="container">
+    <div class="filters">
+        <button onclick="setFilter('all')" class="active">All</button>
+        <button onclick="setFilter('vanilla')">Vanilla</button>
+        <button onclick="setFilter('bukkit')">Bukkit</button>
+        <button onclick="setFilter('paper')">Paper</button>
+        <button onclick="setFilter('purpur')">Purpur</button>
+        <div class="custom-select" id="versionSelect">
+            <div class="select-selected" onclick="toggleVersionDropdown()">All Versions</div>
+            <div class="select-options" id="versionOptions">
+                <div onclick="selectVersion('all')">All Versions</div>
+                <div onclick="selectVersion('1.13')">1.13+</div>
+                <div onclick="selectVersion('1.14')">1.14+</div>
+                <div onclick="selectVersion('1.15')">1.15+</div>
+                <div onclick="selectVersion('1.16')">1.16+</div>
+                <div onclick="selectVersion('1.17')">1.17+</div>
+                <div onclick="selectVersion('1.18')">1.18+</div>
+                <div onclick="selectVersion('1.19')">1.19+</div>
+                <div onclick="selectVersion('1.20')">1.20+</div>
+            </div>
+        </div>
+    </div>
+    <div class="edition-filters">
+        <button onclick="setEdition('all')" class="active">All Editions</button>
+        <button onclick="setEdition('Java')">Java</button>
+        <button onclick="setEdition('Bedrock')">Bedrock</button>
+    </div>
+    <input type="text" id="search" placeholder="Search commands...">
+    <div id="commandsContainer">Loading commands...</div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+let commandsList = [];
+let currentFilter = 'all';
+let currentEdition = 'all';
+let currentVersion = 'all';
+
+// Load commands.txt from same directory
+fetch('commands.txt')
+.then(response => response.text())
+.then(text => {
+    commandsList = text.split('\n')
+        .filter(line => line.trim() !== '')
+        .map(line => {
+            const parts = line.split(':');
+            const edition = parts.shift().trim();
+            const category = parts.shift().trim();
+            const version = parts.shift().trim();
+            const command = parts.shift().trim();
+            const desc = parts.join(':').trim();
+            return { edition, category, version, command, desc };
+        });
+    displayCommands(commandsList);
+})
+.catch(err => {
+    document.getElementById('commandsContainer').innerText = 'Failed to load commands.txt. Make sure it is in the same directory.';
+});
+
+function setFilter(filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    displayCommands(commandsList);
+}
+
+function setVersion(version) {
+    currentVersion = version;
+    displayCommands(commandsList);
+}
+
+function setEdition(edition) {
+    currentEdition = edition;
+    document.querySelectorAll('.edition-filters button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    displayCommands(commandsList);
+}
+
+function toggleVersionDropdown() {
+    const options = document.getElementById('versionOptions');
+    options.classList.toggle('show');
+}
+
+function selectVersion(version) {
+    currentVersion = version;
+    const selectedText = version === 'all' ? 'All Versions' : version + '+';
+    document.querySelector('.select-selected').textContent = selectedText;
+    document.getElementById('versionOptions').classList.remove('show');
+    displayCommands(commandsList);
+}
+
+function matchesFilter(item, filter, versionFilter, editionFilter) {
+    if (filter !== 'all' && item.category !== filter) return false;
+    if (editionFilter !== 'all' && item.edition !== editionFilter) return false;
+    if (versionFilter === 'all') return true;
+    const itemVer = parseFloat(item.version);
+    const filterVer = parseFloat(versionFilter);
+    return itemVer >= filterVer;
+}
+
+// Display commands
+function displayCommands(list) {
+    const filtered = list.filter(item => matchesFilter(item, currentFilter, currentVersion, currentEdition));
+    const container = document.getElementById('commandsContainer');
+    container.innerHTML = '';
+    filtered.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'command';
+        div.innerHTML = `
+            <div class="command-info">
+                <div class="command-name">${item.command}</div>
+                <div class="command-desc">${item.desc}</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand('${item.command.replace(/'/g,"\\'")}')">Copy</button>
+        `;
+        container.appendChild(div);
+    });
+}
+
+// Copy to clipboard
+function copyCommand(cmd) {
+    navigator.clipboard.writeText(cmd).then(() => {
+        showToast(`Copied: ${cmd}`);
+    });
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Search filter
+document.getElementById('search').addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    const filtered = commandsList.filter(c =>
+        matchesFilter(c, currentFilter, currentVersion, currentEdition) &&
+        (c.command.toLowerCase().includes(query) ||
+        c.desc.toLowerCase().includes(query))
+    );
+    displayCommands(filtered);
+});
+
+// Parallax effect
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    header.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+});
+
+// Close dropdown on outside click
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.custom-select')) {
+        document.getElementById('versionOptions').classList.remove('show');
+    }
+});
+
+function toggleDocs() {
+    const docs = document.getElementById('docs');
+    docs.classList.toggle('show');
+}
+
+// Prevent closing when clicking on content
+document.querySelector('.docs-content').addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+</script>
+<div id="docs" class="docs-section">
+    <div class="docs-overlay" onclick="toggleDocs()"></div>
+    <div class="docs-content">
+        <button class="close-btn" onclick="toggleDocs()">×</button>
+        <h2>Documentation</h2>
+        <h3>Sources</h3>
+        <p>This CommandBlock website sources its commands from the official <a href="https://minecraft.fandom.com/wiki/Commands" target="_blank">Minecraft Wiki</a>, which provides comprehensive documentation on all Minecraft commands across different versions and editions.</p>
+        <p>The command data is stored in <code>commands.txt</code>, categorized by server type (Vanilla, Bukkit, Paper, Purpur) and version introduced. This allows for filtering and easy updates.</p>
+        <h3>How It Works</h3>
+        <p>Use the filters to view commands specific to server types or Minecraft versions. The search bar helps find commands quickly. Click "Copy" to copy any command to your clipboard.</p>
+        <h3>Contributing</h3>
+        <p>Check the <a href="https://github.com/" target="_blank">Database</a> link for the source code and data files. Feel free to contribute updates or corrections.</p>
+    </div>
+</div>
+</body>
+</html>

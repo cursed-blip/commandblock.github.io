@@ -1,0 +1,190 @@
+Java:vanilla:1.13:/? : An alias of /help. Provides help for commands.
+Java:vanilla:1.13:/ability : Grants or revokes a player ability.
+Java:vanilla:1.12:/advancement : Gives, removes, or checks player advancements.
+Java:vanilla:1.13:/alwaysday : An alias of /daylock. Locks and unlocks the day-night cycle.
+Java:vanilla:1.16:/attribute : Queries, adds, removes or sets an entity attribute.
+Java:vanilla:1.13:/ban : Adds player to banlist.
+Java:vanilla:1.13:/ban-ip : Adds IP address to banlist.
+Java:vanilla:1.13:/banlist : Displays banlist.
+Java:vanilla:1.13:/bossbar : Creates and modifies bossbars.
+Java:vanilla:1.13:/camera : Switch to custom camera perspectives and fade the screen.
+Java:vanilla:1.13:/camerashake : Used to enable a camera shaking effect.
+Java:vanilla:1.13:/changesetting : Changes a setting on the dedicated server while it's running.
+Java:vanilla:1.13:/clear : Clears items from player inventory.
+Java:vanilla:1.13:/clearspawnpoint : Remove spawnpoints in the world.
+Java:vanilla:1.13:/clone : Copies blocks from one place to another.
+Java:vanilla:1.13:/connect : An alias of /wsserver. Attempts to connect to the websocket server.
+Java:vanilla:1.19:/damage : Applies damage to the specified entities.
+Java:vanilla:1.13:/data : Gets, merges, modifies and removes block entity and entity NBT data.
+Java:vanilla:1.13:/datapack : Controls loaded data packs.
+Java:vanilla:1.13:/daylock : An alias of /alwaysday. Locks and unlocks the day-night cycle.
+Java:vanilla:1.13:/debug : Starts or stops a debugging session.
+Java:vanilla:1.13:/dedicatedwsserver : Attempts to connect to a websocket server.
+Java:vanilla:1.13:/defaultgamemode : Sets the default game mode.
+Java:vanilla:1.13:/deop : Revokes operator status from a player.
+Java:vanilla:1.13:/dialogue : Opens NPC dialogue for a player.
+Java:vanilla:1.13:/difficulty : Sets the difficulty level.
+Java:vanilla:1.13:/effect : Adds or removes status effects.
+Java:vanilla:1.13:/enchant : Adds an enchantment to a player's selected item.
+Java:vanilla:1.13:/event : Used to trigger an event on an entity.
+Java:vanilla:1.13:/execute : Executes another command.
+Java:vanilla:1.13:/experience : An alias of /xp. Adds or removes player experience.
+Java:vanilla:1.13:/fill : Fills a region with a specific block.
+Java:vanilla:1.19:/fillbiome : Fills a region with a specific biome.
+Java:vanilla:1.13:/fog : Used for managing active fog settings for players.
+Java:vanilla:1.13:/forceload : Forces chunks to constantly be loaded or not.
+Java:vanilla:1.13:/function : Runs a function.
+Java:vanilla:1.13:/gamemode : Sets a player's game mode.
+Java:vanilla:1.13:/gamerule : Sets or queries a game rule value.
+Java:vanilla:1.13:/gametest : To test the GameTest features.
+Java:vanilla:1.13:/give : Gives an item to a player.
+Java:vanilla:1.13:/help : An alias of /?. Provides help for commands.
+Java:vanilla:1.13:/immutableworld : Allows setting immutable state of a world.
+Java:vanilla:1.13:/item : Manipulates items in inventories.
+Java:vanilla:1.13:/jfr : Starts or stops a JFR profiling.
+Java:vanilla:1.13:/kick : Kicks a player off a server.
+Java:vanilla:1.13:/kill : Kills entities (players, mobs, items, etc.).
+Java:vanilla:1.13:/list : Lists players on the server.
+Java:vanilla:1.13:/locate : Locates closest structure, biome, or point of interest.
+Java:vanilla:1.13:/loot : Drops items from an inventory slot onto the ground.
+Java:vanilla:1.13:/me : Displays a message about the sender.
+Java:vanilla:1.13:/mobevent : Enables/disables a specified mob event.
+Java:vanilla:1.13:/msg : An alias of /tell and /w. Displays a private message to other players.
+Java:vanilla:1.13:/music : Allows the player to control playing music tracks.
+Java:vanilla:1.13:/op : Grants operator status to a player.
+Java:vanilla:1.13:/ops : An alias of /permission. Reloads and applies permissions.
+Java:vanilla:1.13:/pardon : Removes entries from the banlist.
+Java:vanilla:1.13:/pardon-ip : Removes entries from the banlist.
+Java:vanilla:1.13:/particle : Creates particles.
+Java:vanilla:1.13:/perf : Captures info and metrics about the game for 10 seconds.
+Java:vanilla:1.13:/permission : An alias of /ops. Reloads and applies permissions.
+Java:vanilla:1.18:/place : Used to place a configured feature, jigsaw, template, or structure at a given location.
+Java:vanilla:1.13:/playanimation : Used to run a one-off animation.
+Java:vanilla:1.13:/playsound : Plays a sound.
+Java:vanilla:1.13:/publish : Opens single-player world to local network.
+Java:vanilla:1.20:/random : Draw a random value or control the random number sequence.
+Java:vanilla:1.13:/recipe : Gives or takes player recipes.
+Java:vanilla:1.13:/reload : Reloads loot tables, advancements, and functions from disk.
+Java:vanilla:1.13:/remove : Removing agent.
+Java:vanilla:1.13:/replaceitem : Replaces items in inventories.
+Java:vanilla:1.20:/return : Control execution flow inside functions and change their return value.
+Java:vanilla:1.19:/ride : Used to make entities ride other entities, stop entities from riding, make rides evict their riders, or summon rides or riders.
+Java:vanilla:1.13:/save : Prepares a backup, queries its status, or resumes.
+Java:vanilla:1.13:/save-all : Saves the server to disk.
+Java:vanilla:1.13:/save-off : Disables automatic server saves.
+Java:vanilla:1.13:/save-on : Enables automatic server saves.
+Java:vanilla:1.13:/say : Displays a message to multiple players.
+Java:vanilla:1.13:/schedule : Delays the execution of a function.
+Java:vanilla:1.13:/scoreboard : Manages scoreboard objectives and players.
+Java:vanilla:1.13:/script : [more information needed].
+Java:vanilla:1.13:/scriptevent : [more information needed].
+Java:vanilla:1.13:/seed : Displays the world seed.
+Java:vanilla:1.13:/setblock : Changes a block to another block.
+Java:vanilla:1.13:/setidletimeout : Sets the time before idle players are kicked.
+Java:vanilla:1.13:/setmaxplayers : Sets the maximum number of players allowed to join.
+Java:vanilla:1.13:/setworldspawn : Sets the world spawn.
+Java:vanilla:1.13:/spawnpoint : Sets the spawn point for a player.
+Java:vanilla:1.13:/spectate : Make one player in spectator mode spectate an entity.
+Java:vanilla:1.13:/spreadplayers : Teleports entities to random locations.
+Java:vanilla:1.13:/stop : Stops a server.
+Java:vanilla:1.13:/stopsound : Stops a sound.
+Java:vanilla:1.13:/structure : Used to save and load structures without having to use structure blocks items in inventories.
+Java:vanilla:1.13:/summon : Summons an entity.
+Java:vanilla:1.13:/tag : Controls entity tags.
+Java:vanilla:1.13:/team : Controls teams.
+Java:vanilla:1.13:/teammsg : An alias of /tm. Specifies the message to send to team.
+Java:vanilla:1.13:/teleport : An alias of /tp. Teleports entities.
+Java:vanilla:1.13:/tell : An alias of /msg and /w. Displays a private message to other players.
+Java:vanilla:1.13:/tellraw : Displays a JSON message to players.
+Java:vanilla:1.13:/testfor : Counts entities matching specified conditions.
+Java:vanilla:1.13:/testforblock : Tests whether a block is in a location.
+Java:vanilla:1.13:/testforblocks : Tests whether the blocks in two regions match.
+Java:vanilla:1.13:/tickingarea : Add, remove, or list ticking areas.
+Java:vanilla:1.13:/time : Changes or queries the world's game time.
+Java:vanilla:1.13:/tick : Freezes and unfreezes time, manages how fast time goes.
+Java:vanilla:1.13:/title : Manages screen titles.
+Java:vanilla:1.13:/titleraw : Controls screen titles with JSON messages.
+Java:vanilla:1.13:/tm : An alias of /teammsg. Specifies the message to send to team.
+Java:vanilla:1.13:/toggledownfall : Toggles the weather.
+Java:vanilla:1.13:/tp : An alias of /teleport. Teleports entities.
+Java:vanilla:1.13:/trigger : Sets a trigger to be activated.
+Java:vanilla:1.13:/transferserver : Transfers a player to another server.
+Java:vanilla:1.13:/volumearea : Add, remove, or list volume areas.
+Java:vanilla:1.13:/w : An alias of /tell and /msg. Displays a private message to other players.
+Java:vanilla:1.13:/wb : An alias of /worldbuilder. Ability to edit restricted blocks.
+Java:vanilla:1.13:/weather : Sets the weather.
+Java:vanilla:1.13:/whitelist : Manages server whitelist.
+Java:vanilla:1.13:/worldborder : Manages the world border.
+Java:vanilla:1.13:/worldbuilder : An alias of /wb. Ability to edit restricted blocks.
+Java:vanilla:1.13:/wsserver : An alias of /connect. Attempts to connect to the websocket server.
+Java:vanilla:1.13:/xp : An alias of /experience‌[Java Edition only]. Adds or removes player experience.
+Java:bukkit:1.13:/bukkit:about : Shows information about Bukkit.
+Java:bukkit:1.13:/bukkit:help : Provides help for Bukkit commands.
+Java:bukkit:1.13:/bukkit:plugins : Lists installed plugins.
+Java:bukkit:1.13:/bukkit:reload : Reloads the server configuration.
+Java:bukkit:1.13:/bukkit:version : Shows the server version.
+Java:bukkit:1.13:/restart : Restarts the server.
+Java:bukkit:1.13:/timings : Manages server timings for performance monitoring.
+Java:bukkit:1.13:/tps : Shows the server's ticks per second.
+Java:paper:1.16:/paper : Shows Paper-specific information.
+Java:paper:1.16:/mspt : Shows milliseconds per tick.
+Java:paper:1.16:/entity : Manages entities.
+Java:paper:1.16:/chunkinfo : Shows information about chunks.
+Java:paper:1.16:/heap : Shows heap memory usage.
+Java:paper:1.16:/ping : Shows player ping.
+Java:paper:1.16:/paper version : Shows Paper version.
+Java:purpur:1.17:/purpur : Shows Purpur-specific information.
+Java:purpur:1.17:/view-distance : Manages view distance settings.
+Java:purpur:1.17:/purpur version : Shows Purpur version.
+Java:purpur:1.17:/async : Manages asynchronous tasks.
+Bedrock:bedrock:1.14:/ability <player> <ability> <true|false> :Grants or revokes a player ability.
+Bedrock:bedrock:1.16:/camerashake add <player> <intensity> :Used to enable a camera shaking effect.
+Bedrock:bedrock:1.0:/agent create :Creates an agent.
+Bedrock:bedrock:1.2:/classroommode :Enables classroom mode.
+Bedrock:bedrock:1.0:/code :Opens the code connection.
+Bedrock:bedrock:1.0:/connect :Attempts to connect to the websocket server.
+Bedrock:bedrock:1.13:/event :Used to trigger an event on an entity.
+Bedrock:bedrock:1.16:/fog :Used for managing active fog settings for players.
+Bedrock:bedrock:1.0:/getchunkdata :Gets chunk data.
+Bedrock:bedrock:1.0:/getchunks :Gets chunk information.
+Bedrock:bedrock:1.0:/getlocalplayername :Gets the local player name.
+Bedrock:bedrock:1.0:/getspawnpoint :Gets the spawn point.
+Bedrock:bedrock:1.0:/globalpause :Pauses the game globally.
+Bedrock:bedrock:1.0:/hasitem :Checks if a player has an item.
+Bedrock:bedrock:1.0:/immutableworld :Allows setting immutable state of a world.
+Bedrock:bedrock:1.0:/inventory :Manipulates items in inventories.
+Bedrock:bedrock:1.0:/leave :Leaves the current game.
+Bedrock:bedrock:1.0:/mobevent :Controls mob events.
+Bedrock:bedrock:1.0:/music :Plays music.
+Bedrock:bedrock:1.0:/particle :Creates particles.
+Bedrock:bedrock:1.0:/playanimation :Plays an animation.
+Bedrock:bedrock:1.0:/playsound :Plays a sound.
+Bedrock:bedrock:1.0:/reload :Reloads the game.
+Bedrock:bedrock:1.0:/replaceitem :Replaces items in inventories.
+Bedrock:bedrock:1.0:/ride :Makes entities ride others.
+Bedrock:bedrock:1.0:/save :Saves the game.
+Bedrock:bedrock:1.0:/schedule :Schedules functions.
+Bedrock:bedrock:1.0:/setblock :Sets a block.
+Bedrock:bedrock:1.0:/setmaxplayers :Sets max players.
+Bedrock:bedrock:1.0:/setworldspawn :Sets world spawn.
+Bedrock:bedrock:1.0:/spawnpoint :Sets spawn point.
+Bedrock:bedrock:1.0:/spreadplayers :Spreads players.
+Bedrock:bedrock:1.0:/stop :Stops the server.
+Bedrock:bedrock:1.0:/stopsound :Stops sounds.
+Bedrock:bedrock:1.0:/structure :Manages structures.
+Bedrock:bedrock:1.0:/summon :Summons entities.
+Bedrock:bedrock:1.0:/tag :Manages tags.
+Bedrock:bedrock:1.0:/teleport :Teleports entities.
+Bedrock:bedrock:1.0:/testfor :Tests for entities.
+Bedrock:bedrock:1.0:/testforblock :Tests for blocks.
+Bedrock:bedrock:1.0:/testforblocks :Tests for blocks in area.
+Bedrock:bedrock:1.0:/tickingarea :Manages ticking areas.
+Bedrock:bedrock:1.0:/time :Manages time.
+Bedrock:bedrock:1.0:/title :Shows titles to players.
+Bedrock:bedrock:1.0:/toggledownfall :Toggles weather.
+Bedrock:bedrock:1.0:/tp :Teleports players.
+Bedrock:bedrock:1.0:/w :Sends private messages.
+Bedrock:bedrock:1.0:/weather :Manages weather.
+Bedrock:bedrock:1.0:/worldbuilder :Toggles world builder mode.
+Bedrock:bedrock:1.0:/wsserver :Manages websocket server.
+Bedrock:bedrock:1.0:/xp :Manages experience.
