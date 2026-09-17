@@ -1,3 +1,4 @@
+
 Java:vanilla:1.13:/? : An alias of /help. Provides help for commands.
 Java:vanilla:1.13:/ability : Grants or revokes a player ability.
 Java:vanilla:1.12:/advancement : Gives, removes, or checks player advancements.
